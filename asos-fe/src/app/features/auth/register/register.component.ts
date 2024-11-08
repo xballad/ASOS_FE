@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service.service'; // Import AuthService
 import bcrypt from 'bcryptjs'; // Import bcryptjs for hashing passwords
+import { HashingService } from '../service/hashing.service';
 
 @Component({
   selector: 'app-register',
@@ -38,18 +39,14 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       const { password, ...rest } = this.registerForm.value;
 
-      // Hash password before sending it to the backend
-      bcrypt.hash(password, 10).then(hashedPassword => {
-        const formData = { ...rest, password: hashedPassword };
-        this.authService.register(formData).subscribe(response => {
-          console.log('Registration successful!', response);
-          // Handle navigation or success message
-        }, error => {
-          console.error('Error during registration:', error);
-        });
-      }).catch(error => {
-        console.error('Error hashing password:', error);
+      // Send plain text password to backend (no hashing here)
+      this.authService.register({ ...rest, password }).subscribe(response => {
+        console.log('Registration successful!', response);
+        // Handle navigation or success message
+      }, error => {
+        console.error('Error during registration:', error);
       });
     }
   }
 }
+

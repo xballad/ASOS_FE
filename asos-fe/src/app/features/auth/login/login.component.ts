@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../service/auth.service.service';
+import { HashingService } from '../service/hashing.service';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +11,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],  // Email input
+      password: ['', [Validators.required, Validators.minLength(6)]]  // Plain text password
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Logging in:', this.loginForm.value);
-      // Logic for logging in will go here
+      this.authService.login(this.loginForm.value).subscribe(response => {
+        // Save the JWT token in localStorage or sessionStorage
+        localStorage.setItem('access_token', response.access_token);
+
+        // Redirect to the dashboard
+        window.location.href = '/dashboard';  // or use Angular router to navigate
+      }, error => {
+        console.error('Login failed:', error);
+      });
     }
   }
 }
