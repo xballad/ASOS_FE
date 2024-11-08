@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthModule } from './features/auth/auth.module';
 import { AuthRoutingModule } from './features/auth/auth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthRoutingModule } from './features/auth/auth-routing.module';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()
