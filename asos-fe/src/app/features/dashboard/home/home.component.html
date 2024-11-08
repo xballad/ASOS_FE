@@ -1,2 +1,35 @@
-<h2>Welcome to the Task Management Dashboard</h2>
-<p>Here you’ll manage all tasks.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+
+  <div class="board">
+    <div class="column">
+      <h2>To Do</h2>
+      <div class="task-list" id="todo">
+        <div class="task">Task 1</div>
+        <div class="task">Task 2</div>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2>In Progress</h2>
+      <div class="task-list" id="in-progress">
+        <div class="task">Task 3</div>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2>Done</h2>
+      <div class="task-list" id="done">
+        <div class="task">Task 4</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
