@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LoginComponent } from './features/auth/login/login.component'; // Import LoginComponent
+import { AuthGuard } from './features/auth/guard/auth.guard';  // Import AuthGuard to protect routes
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }, // Update to directly route to LoginComponent
-  { path: 'register', component: RegisterComponent }, // Direct route to RegisterComponent
-  { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default to login
-  { path: '**', redirectTo: '/login' }, // Redirect unknown paths
+  { path: 'login', component: LoginComponent }, // Route to LoginComponent
+  { path: 'register', component: RegisterComponent }, // Route to RegisterComponent
+  { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },  // Protect Dashboard route with AuthGuard
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login by default
+  { path: '**', redirectTo: '/login' }, // Redirect unknown paths to login
 ];
 
 @NgModule({
