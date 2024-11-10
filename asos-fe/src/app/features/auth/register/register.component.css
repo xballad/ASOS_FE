@@ -5,12 +5,10 @@
   box-sizing: border-box;
 }
 
-body {
+.fake_body{
   display: flex;
   justify-content: center; /* Horizontálne centrovanie */
   align-items: center; /* Vertikálne centrovanie */
-  height: 100vh; /* Zabezpečí, že kontajner bude mať výšku celej obrazovky */
-  background-color: #121212; /* Tmavé pozadie */
   color: #e0e0e0; /* Svetlý text */
 }
 .register-h2{
