@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    font-family: 'Roboto', sans-serif; /* Set the font for the entire application */
-    background-color: bisque;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
 }
