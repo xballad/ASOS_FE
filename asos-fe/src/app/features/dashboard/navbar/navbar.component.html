@@ -2,10 +2,12 @@
     <div class="navbar-logo">
       <img src="../../../../assets/images/logoAs.jpg" alt="App Logo">
     </div>
+    <span *ngIf="userEmail">Currently signed in: {{ userEmail }}</span>
     <ul class="navbar-links">
       <li><a routerLink="/dashboard">Dashboard</a></li>
       <li><a routerLink="/tasks">Tasks</a></li>
       <li><a routerLink="/profile">Profile</a></li>
+      <li><a routerLink="/create-task">Create task +</a></li>
     </ul>
     <div class="navbar-icons">
       <button class="icon-button" (click)="openSettings()">
