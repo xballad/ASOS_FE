@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SettingsComponent } from './settings/settings.component';
-import { CreateTaskComponent } from './create-task/create-task.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { SettingsComponent } from './component/settings/settings.component';
+import { CreateTaskComponent } from './component/create-task/create-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskListComponent } from './component/task-list/task-list.component';
 
 
 
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     SettingsComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    TaskListComponent
   ],
   imports: [
     CommonModule,

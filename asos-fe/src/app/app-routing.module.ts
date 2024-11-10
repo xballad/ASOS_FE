@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LoginComponent } from './features/auth/login/login.component'; // Import LoginComponent
 import { AuthGuard } from './features/auth/guard/auth.guard';  // Import AuthGuard to protect routes
-import { CreateTaskComponent } from './features/dashboard/create-task/create-task.component';
+import { CreateTaskComponent } from './features/dashboard/component/create-task/create-task.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, // Route to LoginComponent

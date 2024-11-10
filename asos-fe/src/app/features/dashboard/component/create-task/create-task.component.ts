@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TaskService } from '../service/task.service';
-import { AuthService } from '../../auth/service/auth.service.service';
+import { TaskService } from '../../service/task.service';
+import { AuthService } from '../../../auth/service/auth.service.service';
 
 @Component({
   selector: 'app-create-task',

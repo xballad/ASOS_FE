@@ -6,11 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8000/api/create/task';  // Replace with your API URL
+  private apiCreateTask = 'http://localhost:8000/api/create/task';
+  private apiGetTask = 'http://localhost:8000/api/get/user/tasks'
 
   constructor(private http: HttpClient) {}
 
   createTask(taskData: any): Observable<any> {
-    return this.http.post(this.apiUrl, taskData);
+    return this.http.post(this.apiCreateTask, taskData);
+  }
+
+  getTasksByEmail(email: string): Observable<any[]> {
+    return this.http.post<any[]>(this.apiGetTask, {email_user: email} );
   }
 }

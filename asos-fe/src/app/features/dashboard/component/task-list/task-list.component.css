@@ -1,0 +1,117 @@
+/* General container styling */
+.task-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  /* Styling for each task section */
+  .task-section {
+    margin-bottom: 30px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-section h2 {
+    font-size: 1.5rem;
+    color: #3f51b5;
+    margin-bottom: 15px;
+  }
+  
+  /* Styling for individual tasks */
+  .task-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-item h3 {
+    font-size: 1.2rem;
+    margin: 0 0 5px;
+    color: #333;
+  }
+  
+  .task-item p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Message for empty sections */
+  .no-tasks {
+    font-size: 0.9rem;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    color: #ddd; /* Svetlá farba pre nadpisy */
+    margin-bottom: 15px;
+  }
+  
+  /* Board kontajner */
+  .board {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden;
+    width: 100%; /* Nastavte šírku na 100% */
+    max-width: 1200px; /* Maximálna šírka pre board */
+    margin: 0 auto; /* Toto zarovná board do stredu */
+  }
+  
+  /* Stĺpec */
+  .column {
+    width: 30%;
+    background-color: #1c1c1c; /* Tmavý stĺpec */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    height: 90%;
+    overflow-y: auto;
+  }
+  
+  .column h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Zoznam úloh */
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Úloha */
+  .task {
+    background-color: #4f4f4f; /* Tmavá farba pre úlohy */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .task:hover {
+    background-color: #616161; /* Svetlejšia farba pri prechode myšou */
+    transform: scale(1.05);
+  }
+  
+  /* Efekty pri presúvaní */
+  .task.dragging {
+    opacity: 0.5;
+    background-color: #777; /* Trochu svetlejší pri ťahaní */
+  }
+  
+  /* Tmavý vzhľad pre prázdne miesta */
+  .column h2 {
+    color: #e0e0e0;
+  }
