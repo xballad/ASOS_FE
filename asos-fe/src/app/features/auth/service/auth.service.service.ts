@@ -10,6 +10,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 export class AuthService {
   private apiUrlRegister = 'http://localhost:8000/api/register'; // env treba dat 
   private apiUrlLogin = 'http://localhost:8000/api/login'; // env
+  private apiUrlForgot = 'http://localhost:8000/forgot-password'; // env
   constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) {}
 
   private tokenKey = 'authToken';
@@ -45,6 +46,10 @@ export class AuthService {
   getToken(): string | null {
     const localStorage = this.document.defaultView?.localStorage;
     return localStorage ? localStorage.getItem(this.tokenKey) : null;
+  }
+
+  sendForgotPassword(email: string): Observable<any> {
+    return this.http.post<any>(this.apiUrlForgot, { email });
   }
 
   
