@@ -1,1 +1,20 @@
-<p>settings works!</p>
+<app-navbar></app-navbar>
+
+<div class="change-password-container">
+    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="oldPassword">Old Password</label>
+        <input type="password" id="oldPassword" formControlName="oldPassword" required />
+      </div>
+      <div>
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword" formControlName="newPassword" required />
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" required />
+      </div>
+      <button type="submit" [disabled]="changePasswordForm.invalid">Change Password</button>
+    </form>
+</div>
+  
