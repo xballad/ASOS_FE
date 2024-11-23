@@ -1,0 +1,44 @@
+<div class="edit-team-container">
+  <h2>Edit Team</h2>
+
+  <!-- Dropdown to select a team -->
+  <label for="teamSelect">Select Team:</label>
+  <select id="teamSelect" (change)="onTeamSelect($event)">
+    <option *ngFor="let team of teams" [value]="team.id" [selected]="team.id === selectedTeamId">
+      {{ team.name }}
+    </option>
+  </select>
+
+  <!-- Form for editing team -->
+  <form [formGroup]="editTeamForm" (ngSubmit)="onUpdate()">
+    <!-- Team name -->
+    <div>
+      <label for="teamName">Team Name:</label>
+      <input
+        id="teamName"
+        type="text"
+        formControlName="teamName"
+        placeholder="Enter team name"
+      />
+    </div>    
+
+    <!-- Team members -->
+    <div>
+      <label>Team Members:</label>
+      <div formArrayName="members">
+        <div *ngFor="let member of members.controls; let i = index">
+          <input
+            [formControlName]="i"
+            type="email"
+            placeholder="Enter member email"
+          />
+          <button type="button" (click)="removeMember(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" (click)="addMember()">Add Member</button>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" [disabled]="editTeamForm.invalid">Save Changes</button>
+  </form>
+</div>

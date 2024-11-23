@@ -5,6 +5,9 @@ import { LoginComponent } from './features/auth/login/login.component'; // Impor
 import { AuthGuard } from './features/auth/guard/auth.guard';  // Import AuthGuard to protect routes
 import { CreateTaskComponent } from './features/dashboard/component/create-task/create-task.component';
 import { SettingsComponent } from './features/dashboard/component/settings/settings.component';
+import { TeamComponent } from './features/dashboard/component/team/team.component';
+import { EditTeamComponent } from './features/dashboard/component/team/edit-team/edit-team.component';
+import { CreateTeamComponent } from './features/dashboard/component/team/create-team/create-team.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, // Route to LoginComponent
@@ -12,6 +15,9 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent }, // Route to RegisterComponent
   { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },  // Protect Dashboard route with AuthGuard
   { path: 'create-task', component: CreateTaskComponent, canActivate: [AuthGuard] },
+  { path: 'team', component: TeamComponent, canActivate: [AuthGuard] },
+  { path: 'team/create-team', component: CreateTeamComponent,canActivate: [AuthGuard] },
+  { path: 'team/edit-team', component: EditTeamComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login by default
   { path: '**', redirectTo: '/login' }, // Redirect unknown paths to login
 ];

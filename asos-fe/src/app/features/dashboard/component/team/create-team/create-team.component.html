@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="create-team-container">
+    <h2>Create Team</h2>
+    <form [formGroup]="createTeamForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="teamName">Team Name</label>
+        <input
+          id="teamName"
+          type="text"
+          formControlName="teamName"
+          placeholder="Enter team name"
+        />
+      </div>
+  
+      <div formArrayName="members" class="form-group">
+        <label for="members">Add Members</label>
+        <div *ngFor="let member of members.controls; let i = index" class="member">
+          <input
+            type="email"
+            [formControlName]="i"
+            placeholder="Enter member email"
+          />
+          <button *ngIf="i > 0" type="button" (click)="removeMember(i)">Remove</button>
+        </div>
+        <button type="button" (click)="addMember()">+ Add Member</button>
+      </div>
+  
+      <button type="submit" [disabled]="createTeamForm.invalid">Create Team</button>
+    </form>
+  </div>
+  
