@@ -6,8 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SettingsComponent } from './component/settings/settings.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskListComponent } from './component/task-list/task-list.component';
+import { EditTeamComponent } from './component/team/edit-team/edit-team.component';
+import { TeamComponent } from './component/team/team.component';
+import { CreateTeamComponent } from './component/team/create-team/create-team.component';
 
 
 
@@ -17,12 +20,16 @@ import { TaskListComponent } from './component/task-list/task-list.component';
     NavbarComponent,
     SettingsComponent,
     CreateTaskComponent,
-    TaskListComponent
+    TaskListComponent,
+    CreateTeamComponent,
+    EditTeamComponent,
+    TeamComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }
