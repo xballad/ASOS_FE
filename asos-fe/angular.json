@@ -73,10 +73,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "asos-fe:build:production"
+              "buildTarget": "asos-fe:build:production",
+              "ssl": true,
+              "sslCert": "keys/selfsigned.crt",
+              "sslKey": "keys/selfsigned.key"
             },
             "development": {
-              "buildTarget": "asos-fe:build:development"
+              "buildTarget": "asos-fe:build:development",
+              "ssl": true,
+              "sslCert": "keys/selfsigned.crt",
+              "sslKey": "keys/selfsigned.key"
             }
           },
           "defaultConfiguration": "development"

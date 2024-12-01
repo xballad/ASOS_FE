@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private apiCreateTask = 'http://localhost:8000/api/create/task';
-  private apiGetTask = 'http://localhost:8000/api/get/user/tasks';
-  private apiChangePassword = 'http://localhost:8000/api/user/changepassword';
+  private apiCreateTask = 'https://localhost:8000/api/create/task';
+  private apiGetTask = 'https://localhost:8000/api/get/user/tasks';
+  private apiChangePassword = 'https://localhost:8000/api/user/changepassword';
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +22,6 @@ export class TaskService {
 
   changePassword(passwordData: { emailUser: any,oldPassword: string; newPassword: string }): Observable<any> {
     console.log(passwordData)
-    return this.http.post(this.apiChangePassword, passwordData);
+    return this.http.post(this.apiChangePassword, passwordData);  
   }
 }
