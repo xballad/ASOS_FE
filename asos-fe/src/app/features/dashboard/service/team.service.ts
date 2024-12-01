@@ -6,10 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TeamService {
-  private apiUrl = 'http://localhost:8000/api/create-team';
-  private apiGetTeamsForMember = 'http://localhost:8000/api/getTeamsForMembers';  // Endpoint for fetching teams
-  private apiGetTeamMembers = 'http://localhost:8000/api/teams';  // Endpoint for fetching members
-  private apiUpdateTeamInfo = 'http://localhost:8000/api/teams/update/members'
+
+  private apiUrl = 'https://localhost:8000/api/create-team';
+  private apiGetTeamsForMember = 'https://localhost:8000/api/getTeamsForMembers';  // Endpoint for fetching teams
+  private apiGetTeamMembers = 'https://localhost:8000/api/teams';  // Endpoint for fetching members
+  private apiUpdateTeamInfo = 'https://localhost:8000/api/teams/update/members'
+
 
   constructor(private http: HttpClient) { }
 
@@ -22,11 +24,13 @@ export class TeamService {
   }
 
   getTeamMembers(teamId: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8000/api/teams/members/${teamId}`);
+
+    return this.http.get<any>(`https://localhost:8000/api/teams/members/${teamId}`);
   }
 
   removeMemberFromTeam(teamId: number, memberId: number): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8000/api/teams/${teamId}/members/${memberId}`);
+    return this.http.delete<any>(`https://localhost:8000/api/teams/${teamId}/members/${memberId}`);
+
   }
 
   updateTeam(team: any): Observable<any> {
