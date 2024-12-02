@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="team-selector">
+  <select (change)="onTeamChange($event)">
+    <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+  </select>
+</div>
+  
+  <div class="task-container">
+    <div class="task-section" id="todo-section" (drop)="dropTask($event, 'To Do')" (dragover)="allowDropTask($event)">
+      <h2>To Do</h2>
+      <div *ngFor="let task of getTasksByStatus('To Do')" class="task-item" [attr.id]="'task-' + task.id" draggable="true" (dragstart)="dragStartTask($event, task)">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <button (click)="openTaskPopup(task)">Details</button>
+      </div>
+      <p *ngIf="getTasksByStatus('To Do').length === 0" class="no-tasks">No tasks to display.</p>
+    </div>
+  
+    <div class="task-section" id="inprogress-section" (drop)="dropTask($event, 'In Progress')" (dragover)="allowDropTask($event)">
+      <h2>In Progress</h2>
+      <div *ngFor="let task of getTasksByStatus('In Progress')" class="task-item" [attr.id]="'task-' + task.id" draggable="true" (dragstart)="dragStartTask($event, task)">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <button (click)="openTaskPopup(task)">Details</button>
+      </div>
+      <p *ngIf="getTasksByStatus('In Progress').length === 0" class="no-tasks">No tasks to display.</p>
+    </div>
+  
+    <div class="task-section" id="done-section" (drop)="dropTask($event, 'Done')" (dragover)="allowDropTask($event)">
+      <h2>Done</h2>
+      <div *ngFor="let task of getTasksByStatus('Done')" class="task-item" [attr.id]="'task-' + task.id" draggable="true" (dragstart)="dragStartTask($event, task)">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <button (click)="openTaskPopup(task)">Details</button>
+      </div>
+      <p *ngIf="getTasksByStatus('Done').length === 0" class="no-tasks">No tasks to display.</p>
+    </div>
+  </div>
+  
+  <app-task-popup 
+    *ngIf="isPopupVisible" 
+    [task]="selectedTask" 
+    [email]="email" 
+    (close)="closeTaskPopup()">
+  </app-task-popup>

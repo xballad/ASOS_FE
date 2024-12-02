@@ -1,0 +1,37 @@
+<div class="popup-backdrop" (click)="closePopup()"></div>
+<div class="popup-content">
+  <h2>{{ taskDetails?.title }}</h2>
+  <p><strong>ID:</strong> {{ taskDetails?.id }}</p>
+  <p><strong>Status:</strong> {{ taskDetails?.status_task }}</p>
+  <p><strong>Created On:</strong> {{ taskDetails?.datetime_of_creation | date:'short' }}</p>
+
+  <div *ngIf="taskDetails?.task_spec">
+    <h3>Task Specifications</h3>
+    <p><strong>Description:</strong> {{ taskDetails?.task_spec.description }}</p>
+    <p><strong>Timestamp:</strong> {{ taskDetails?.task_spec.timestamp_of_change | date:'short' }}</p>
+  </div>
+
+  <div>
+    <h3>Comments</h3>
+    <ul *ngIf="taskDetails?.task_spec?.comments?.length; else noComments">
+      <li *ngFor="let comment of taskDetails.task_spec.comments">
+        <strong>{{ comment.user_username }}</strong>: {{ comment.text }}
+        <small>({{ comment.datetime_of_creation | date:'short' }})</small>
+      </li>
+    </ul>
+    <ng-template #noComments>
+      <p>No comments yet.</p>
+    </ng-template>
+  </div>
+
+  <div>
+    <h4>Add a Comment</h4>
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
+      <textarea formControlName="comment" rows="3" placeholder="Write your comment here"></textarea>
+      <button type="submit" [disabled]="!commentForm.valid">Submit Comment</button>
+    </form>
+  </div>
+
+  <p><strong>Assigned To:</strong> {{ taskDetails?.user?.email }}</p>
+  <button (click)="closePopup()">Close</button>
+</div>

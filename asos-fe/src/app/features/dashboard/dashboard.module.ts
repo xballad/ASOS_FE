@@ -11,6 +11,8 @@ import { TaskListComponent } from './component/task-list/task-list.component';
 import { EditTeamComponent } from './component/team/edit-team/edit-team.component';
 import { TeamComponent } from './component/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
+import { TaskPopupComponent } from './component/task-popup/task-popup.component';
+import { TeamTaskListComponent } from './component/team-task-list/team-task-list.component';
 
 
 
@@ -23,7 +25,9 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
     TaskListComponent,
     CreateTeamComponent,
     EditTeamComponent,
-    TeamComponent
+    TeamComponent,
+    TaskPopupComponent,
+    TeamTaskListComponent
   ],
   imports: [
     CommonModule,
