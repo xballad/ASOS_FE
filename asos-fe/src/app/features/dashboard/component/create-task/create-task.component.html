@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
 
+<div class="container">
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+
+  <h4>Create Task</h4>
+
   <div class="form-group">
     <label for="title">Title</label>
     <input id="title" formControlName="title" type="text" required />
@@ -32,3 +36,4 @@
 
   <button type="submit" [disabled]="taskForm.invalid">Create Task</button>
 </form>
+</div>

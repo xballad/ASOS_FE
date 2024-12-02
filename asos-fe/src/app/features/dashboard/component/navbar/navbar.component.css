@@ -1,51 +1,147 @@
+/* Celkový vzhľad navigačného menu */
 .navbar {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: #3f51b5;
-    color: white;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f1f; /* Tmavá farba pre pozadie */
+  padding: 0.7rem 0.5rem;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Jemný tieň pre lepšiu viditeľnosť */
+  border-bottom: 2px solid #444; /* Spodná čiara pre oddelenie od obsahu */
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo img {
+  width: 60px; /* Šírka loga */
+  cursor: pointer;
+}
+
+/* Text s emailom používateľa */
+.navbar span {
+  color: #fff;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+
+/* Odkazy v navigačnom menu */
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover efekt pre odkazy */
+.navbar-links a:hover {
+  color: #03caf2; /* Svetlo modrá farba pri hover */
+}
+
+/* Ikony v navigačnom menu */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon-button img {
+  width: 20px;
+  height: 20px;
   
-  .navbar-logo img {
-    height: 40px;
-    margin-right: 1rem;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
+}
+
+.icon-button:hover {
+  transform: scale(1.1); /* Zväčšenie pri hover */
+}
+
+.icon-button img:hover {
+  filter: invert(100%) brightness(1.5); /* Zosvetlenie pri hover */
+}
+
+/* Hamburger menu */
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* Skryté na veľkých obrazovkách */
+}
+
+.hamburger:hover {
+  color: #03caf2;
+}
+
+/* Reakcia na malé obrazovky (mobilný režim) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Zobrazíme hamburger na menších obrazovkách */
   }
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #3f51b5;
-    color: white;
+  .navbar-links {
+    display: none; /* Skryjeme odkazy v mobilnej verzii */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Pod navbarom */
+    left: 0;
+    width: 100%;
+    background-color: #1f1f1f;
+    border-top: 1px solid #444;
   }
-  
+
+  .navbar-links.active {
+    display: flex; /* Zobrazíme odkazy, ak je menu aktívne */
+  }
+
+  .navbar-links li {
+    margin: 0.5rem 0;
+    text-align: center; /* Centrovanie odkazov */
+  }
+
   .navbar-icons {
-    display: flex;
-    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+    width: 100%;
   }
-  
-  .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
+}
+
+/* Reakcia na veľmi malé obrazovky */
+@media (max-width: 480px) {
+  .navbar-logo img {
+    width: 120px; /* Zmenšenie loga pre malé zariadenia */
   }
-  
+
+  .navbar-links a {
+    font-size: 0.9rem; /* Zmenšenie textu pre odkazy */
+  }
+
   .icon-button img {
-    height: 24px;
-    width: 24px;
+    width: 18px; /* Zmenšenie ikon */
   }
-  
-  
+
+  .hamburger {
+    font-size: 1.3rem; /* Menšie hamburger menu */
+  }
+}

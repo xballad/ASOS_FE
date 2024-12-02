@@ -10,6 +10,7 @@ import { AuthService } from '../../../auth/service/auth.service.service';
 export class NavbarComponent implements OnInit {
   
   userEmail: string | null = null;
+  menuActive: boolean = false;
 
   constructor(private router: Router,
               private authService: AuthService
@@ -19,6 +20,10 @@ export class NavbarComponent implements OnInit {
     this.userEmail = this.authService.getUserEmail();
   }
 
+  // Metóda na prepínanie viditeľnosti menu
+  toggleMenu(): void {
+    this.menuActive = !this.menuActive;
+  }
   // Method to handle logout
   logout(): void {
     localStorage.removeItem('access_token');  

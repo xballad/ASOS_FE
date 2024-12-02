@@ -6,9 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
+
   private apiCreateTask = 'https://localhost:8000/api/create/task';
   private apiGetTask = 'https://localhost:8000/api/get/user/tasks';
   private apiChangePassword = 'https://localhost:8000/api/user/changepassword';
+  private apiUpdateTask = 'http://localhost:8000/api/update/task';
+
+
+
 
   constructor(private http: HttpClient) {}
 
@@ -23,5 +28,8 @@ export class TaskService {
   changePassword(passwordData: { emailUser: any,oldPassword: string; newPassword: string }): Observable<any> {
     console.log(passwordData)
     return this.http.post(this.apiChangePassword, passwordData);  
+  }
+  updateTaskStatus(task: any): Observable<any> {
+    return this.http.put(this.apiUpdateTask, task);  // Predpokladám, že API používa HTTP PUT na aktualizáciu
   }
 }
