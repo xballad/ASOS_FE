@@ -8,9 +8,9 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrlRegister = 'http://localhost:8000/api/register'; // env treba dat 
-  private apiUrlLogin = 'http://localhost:8000/api/login'; // env
-  private apiUrlForgot = 'http://localhost:8000/forgot-password'; // env
+  private apiUrlRegister = 'https://localhost:8000/api/register'; // env treba dat 
+  private apiUrlLogin = 'https://localhost:8000/api/login'; // env
+  private apiUrlForgot = 'https://localhost:8000/forgot-password'; // env
   constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) {}
 
   private tokenKey = 'authToken';
