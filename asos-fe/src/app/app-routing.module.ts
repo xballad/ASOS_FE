@@ -8,6 +8,7 @@ import { SettingsComponent } from './features/dashboard/component/settings/setti
 import { TeamComponent } from './features/dashboard/component/team/team.component';
 import { EditTeamComponent } from './features/dashboard/component/team/edit-team/edit-team.component';
 import { CreateTeamComponent } from './features/dashboard/component/team/create-team/create-team.component';
+import { TeamTaskListComponent } from './features/dashboard/component/team-task-list/team-task-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, // Route to LoginComponent
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'team', component: TeamComponent, canActivate: [AuthGuard] },
   { path: 'team/create-team', component: CreateTeamComponent,canActivate: [AuthGuard] },
   { path: 'team/edit-team', component: EditTeamComponent, canActivate: [AuthGuard] },
+  { path: 'team-task-list', component: TeamTaskListComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login by default
   { path: '**', redirectTo: '/login' }, // Redirect unknown paths to login
 ];
