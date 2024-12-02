@@ -10,7 +10,7 @@ export class TaskService {
   private apiCreateTask = 'https://localhost:8000/api/create/task';
   private apiGetTask = 'https://localhost:8000/api/get/user/tasks';
   private apiChangePassword = 'https://localhost:8000/api/user/changepassword';
-  private apiUpdateTask = 'http://localhost:8000/api/update/task';
+  private apiUpdateTask = 'https://localhost:8000/api/task/update';
 
 
 
@@ -29,7 +29,8 @@ export class TaskService {
     console.log(passwordData)
     return this.http.post(this.apiChangePassword, passwordData);  
   }
-  updateTaskStatus(task: any): Observable<any> {
-    return this.http.put(this.apiUpdateTask, task);  // Predpokladám, že API používa HTTP PUT na aktualizáciu
+  updateTaskStatus(taskId: number, status: string): Observable<any> {
+    const body = { task_id: taskId, status }; 
+    return this.http.put(this.apiUpdateTask, body);  // Predpokladám, že API používa HTTP PUT na aktualizáciu
   }
 }

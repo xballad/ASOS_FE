@@ -61,17 +61,14 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-  // 4. Aktualizácia stavu tasku
   updateTaskStatus(task: any, status: string): void {
-    task.status_task = status;
-    console.log(`Task with ID: ${task.id} has been moved to ${status}`);
-    // Ak máš API na update, tu zavolaj službu na uloženie zmeny
-    this.taskService.updateTaskStatus(task).subscribe(
-      () => {
-        console.log('Task status updated successfully.');
+    const taskId = task.id; 
+    this.taskService.updateTaskStatus(taskId, status).subscribe(
+      (response) => {
+        console.log('Task status updated successfully on backend:', response);
       },
-      (error: HttpErrorResponse) => {  // Typujeme parameter error
-        console.error('Error updating task status:', error);
+      (error: HttpErrorResponse) => {
+        console.error('Error updating task status on backend:', error);
       }
     );
   }
