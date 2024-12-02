@@ -1,117 +1,92 @@
-/* General container styling */
 .task-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-  }
-  
-  /* Styling for each task section */
-  .task-section {
-    margin-bottom: 30px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .task-section h2 {
-    font-size: 1.5rem;
-    color: #3f51b5;
-    margin-bottom: 15px;
-  }
-  
-  /* Styling for individual tasks */
-  .task-item {
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .task-item h3 {
-    font-size: 1.2rem;
-    margin: 0 0 5px;
-    color: #333;
-  }
-  
-  .task-item p {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  /* Message for empty sections */
-  .no-tasks {
-    font-size: 0.9rem;
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
+  display: flex;
+  justify-content: space-around; /* Evenly space sections */
+  padding: 2rem; /* Add some space around the container */
+  background-color: #121212; /* Match the dark theme */
+  color: #fff;
+  font-family: 'Arial', sans-serif; /* Keep it clean */
+}
+.task-section {
+  background-color: #1f1f1f; /* Dark card background */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  flex: 1; /* Allow sections to grow evenly */
+  margin: 0 1rem; /* Add spacing between sections */
+  max-width: 300px; /* Prevent sections from becoming too wide */
+}
+.task-section h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #3a86ff; /* Accent color for headings */
+  border-bottom: 2px solid #3a86ff; /* Add a divider */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.task-item {
+  background-color: #2c2c2c; /* Slightly lighter card */
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add slight depth */
+}
+/* Task title */
+.task-item h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
 
-  h2 {
-    font-size: 18px;
-    text-align: center;
-    color: #ddd; /* Svetlá farba pre nadpisy */
-    margin-bottom: 15px;
-  }
-  
-  /* Board kontajner */
-  .board {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    overflow: hidden;
-    width: 100%; /* Nastavte šírku na 100% */
-    max-width: 1200px; /* Maximálna šírka pre board */
-    margin: 0 auto; /* Toto zarovná board do stredu */
-  }
-  
-  /* Stĺpec */
-  .column {
-    width: 30%;
-    background-color: #1c1c1c; /* Tmavý stĺpec */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    height: 90%;
-    overflow-y: auto;
-  }
-  
-  .column h2 {
-    margin-bottom: 20px;
-  }
-  
-  /* Zoznam úloh */
-  .task-list {
-    display: flex;
+/* Task description */
+.task-item p {
+  font-size: 0.9rem;
+  color: #bbb; /* Slightly muted text for descriptions */
+  line-height: 1.4;
+}
+/* Styling for 'No tasks' message */
+.no-tasks {
+  text-align: center;
+  color: #bbb; /* Muted text */
+  font-style: italic; /* Subtle styling */
+}
+/* Add hover effect to task items */
+.task-item:hover {
+  background-color: #3a86ff; /* Highlight with accent color */
+  color: #fff; /* Ensure text remains readable */
+  transform: translateY(-2px); /* Slight lift effect */
+  transition: all 0.3s ease; /* Smooth animation */
+}
+
+/* Responsive design: Stack sections vertically on smaller screens */
+@media (max-width: 768px) {
+  .task-container {
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
+  }
+}
+
+  .task-item {
+    cursor: grab; /* Ruka pre tasky */
+    transition: transform 0.3s ease;
   }
   
-  /* Úloha */
-  .task {
-    background-color: #4f4f4f; /* Tmavá farba pre úlohy */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  .task-item:active {
+    cursor: grabbing; /* Ruka počas ťahania */
+    transform: scale(1.02); /* Zväčšenie pri ťahaní */
   }
   
-  .task:hover {
-    background-color: #616161; /* Svetlejšia farba pri prechode myšou */
-    transform: scale(1.05);
+  .task-item:hover {
+    background-color: #2c6fd4; /* Zvýraznenie pri hover */
   }
   
-  /* Efekty pri presúvaní */
-  .task.dragging {
-    opacity: 0.5;
-    background-color: #777; /* Trochu svetlejší pri ťahaní */
+  .task-section {
+    min-height: 300px; /* Minimalizovaný rozmer pre sekciu */
+    padding: 1rem;
+    background-color: #2c2c2c; /* Podklad pre sekciu */
+    border-radius: 8px;
+    margin-bottom: 2rem;
   }
   
-  /* Tmavý vzhľad pre prázdne miesta */
-  .column h2 {
-    color: #e0e0e0;
+  .task-section:hover {
+    background-color: #444444; /* Zmeniť pozadie pri prechode myšou */
   }

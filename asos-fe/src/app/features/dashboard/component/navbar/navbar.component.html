@@ -2,17 +2,18 @@
     <div class="navbar-logo">
       <img src="../../../../assets/images/logoAs.jpg" alt="App Logo">
     </div>
-    <span *ngIf="userEmail">Currently signed in: {{ userEmail }}</span>
-    <ul class="navbar-links">
+    <button class="hamburger" (click)="toggleMenu()">&#9776;</button>
+    <ul class="navbar-links" [class.active]="menuActive">
       <li><a routerLink="/dashboard">Dashboard</a></li>
       <li><a routerLink="/tasks">Tasks</a></li>
       <li><a routerLink="/profile">Profile</a></li>
       <li><a routerLink="/create-task">Create task +</a></li>
       <li><a routerLink="/team">Tymi</a></li>
     </ul>
+    <span *ngIf="userEmail">Currently signed in: {{ userEmail }}</span>
     <div class="navbar-icons">
       <button class="icon-button" (click)="openSettings()">
-        <img src="../../../../assets/images/setting.png" alt="Settings Icon">
+        <img src="../../../../assets/images/icon-setting.png" alt="Settings Icon">
       </button>
       <button class="icon-button" (click)="logout()">
         <img src="../../../../assets/images/logout.png" alt="Logout Icon">
