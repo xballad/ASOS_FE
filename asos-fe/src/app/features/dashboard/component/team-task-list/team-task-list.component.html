@@ -1,9 +1,13 @@
 <app-navbar></app-navbar>
-
-<div class="team-selector">
-  <select (change)="onTeamChange($event)">
-    <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
-  </select>
+<div class="center-container">
+  <div class="custom-select-wrapper">
+    <div class="team-selector">
+      <select (change)="onTeamChange($event)">
+        <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+      </select>
+  </div>
+  </div>
+    
 </div>
   
   <div class="task-container">

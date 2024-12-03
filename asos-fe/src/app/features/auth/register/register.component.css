@@ -10,6 +10,7 @@
   justify-content: center; /* Horizontálne centrovanie */
   align-items: center; /* Vertikálne centrovanie */
   color: #e0e0e0; /* Svetlý text */
+  padding-top: 30px;
 }
 .register-h2{
   font-size: 24px;

@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
 /* Centering the login form */
@@ -107,5 +108,43 @@ button:hover:not(:disabled) {
 }
 
 .register-link a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* Kontajner pre register a forgot password */
+.register-link,
+.forgot-password-link {
+  text-align: center;
+  margin-top: 1rem; /* Priestor nad odkazmi */
+}
+
+/* Štýly pre odstavce */
+.register-link p,
+.forgot-password-link p {
+  font-size: 1rem;
+  color: #fff; /* Biely text */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Štýly pre odkazy */
+.register-link a,
+.forgot-password-link a {
+  color: #ff9800; /* Svetlomodrá farba pre odkaz */
+  text-decoration: none; /* Odstránenie podčiarknutia */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Plynulý prechod pri hover */
+}
+
+/* Hover efekt pre odkazy */
+.register-link a:hover,
+.forgot-password-link a:hover {
+  color: #ff9800; /* Tmavšia modrá pri hover */
+}
+
+/* Fokus efekt pre odkazy */
+.register-link a:focus,
+.forgot-password-link a:focus {
+  outline: 2px solid #ff9800; /* Svetlomodrý obrys pri focus */
+  outline-offset: 2px;
 }

@@ -28,4 +28,79 @@
   button:hover {
     opacity: 0.9;
   }
+
+  /* Celý kontajner pre stránku */
+.team-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #121212; /* Tmavé pozadie */
+  color: white;
+  border-top: 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Nadpis */
+.team-page h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 30px;
+  text-align: center;
+  color: #03caf2; /* Svetlomodrá farba */
+}
+
+/* Možnosti tímového manažmentu */
+.team-options {
+  display: flex;
+  gap: 1.5rem; /* Priestor medzi tlačidlami */
+  flex-wrap: wrap; /* Zabezpečí zalomenie tlačidiel na menších obrazovkách */
+  justify-content: center;
+}
+
+/* Tlačidlá */
+.team-options .btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Tlačidlo Create */
+.btn-create {
+  background-color: #03caf2;
+}
+
+.btn-create:hover {
+  background-color: #027bb8;
+  transform: scale(1.05);
+}
+
+/* Tlačidlo Edit */
+.btn-edit {
+  background-color: #444;
+}
+
+.btn-edit:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+/* Responzivita pre menšie obrazovky */
+@media (max-width: 768px) {
+  .team-page h2 {
+    font-size: 1.5rem; /* Zmenšenie nadpisu */
+  }
+
+  .team-options .btn {
+    padding: 0.6rem 1.5rem; /* Menšie tlačidlá */
+    font-size: 0.9rem;
+  }
+}
+
   

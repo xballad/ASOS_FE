@@ -3,12 +3,14 @@
   <h2>Edit Team</h2>
 
   <!-- Dropdown to select a team -->
+  <div class="select-container">
   <label for="teamSelect">Select Team:</label>
   <select id="teamSelect" (change)="onTeamSelect($event)">
     <option *ngFor="let team of teams" [value]="team.id" [selected]="team.id === selectedTeamId">
       {{ team.name }}
     </option>
   </select>
+  </div>
 
   <!-- Form for editing team -->
   <form [formGroup]="editTeamForm" (ngSubmit)="onUpdate()">

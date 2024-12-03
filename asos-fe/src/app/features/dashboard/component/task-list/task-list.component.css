@@ -90,3 +90,110 @@
   .task-section:hover {
     background-color: #444444; /* Zmeniť pozadie pri prechode myšou */
   }
+
+/* Kontajner pre zarovnanie do stredu */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px; /* Odsadenie od navigácie */
+  background-color: #121212; /* Rovnaké tmavé pozadie ako stránka */
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Obal pre custom select */
+.custom-select-wrapper {
+  position: relative;
+  width: 300px; /* Nastavenie šírky */
+}
+
+/* Základný štýl pre <select> */
+select {
+  appearance: none; /* Odstránenie natívnych šípok */
+  background-color: #1f1f1f; /* Tmavé pozadie */
+  color: #fff; /* Biely text */
+  font-size: 1rem;
+  padding: 0.8rem 2rem 0.8rem 1rem;
+  border: 1px solid #444;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Hover efekt pre <select> */
+select:hover {
+  border-color: #03caf2; /* Svetlomodrý rámik */
+  
+}
+
+/* Fokus efekt pre <select> */
+select:focus {
+  border-color: #03caf2; /* Svetlomodrý rámik */
+  box-shadow: 0 0 5px rgba(3, 202, 242, 0.5); /* Svetelný efekt */
+}
+
+/* Vlastná šípka pre select */
+.custom-select-wrapper::after {
+  content: '▼'; /* Symbol pre šípku */
+  position: absolute;
+  top: 50%; /* Centrovanie */
+  right: 1rem; /* Odsadenie od pravého okraja */
+  transform: translateY(-50%);
+  color: #fff; /* Farba šípky */
+  pointer-events: none; /* Zabraňuje interakcii so šípkou */
+  transition: color 0.3s ease;
+}
+
+/* Zmena farby šípky pri hover */
+.custom-select-wrapper:hover::after {
+  color: #03caf2; /* Svetlomodrá pri hover */
+}
+
+/* Štýl pre jednotlivé možnosti */
+select option {
+  background-color: #1f1f1f; /* Rovnaké tmavé pozadie */
+  color: #fff; /* Biely text */
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hover efekt pre možnosti */
+select option:hover {
+  background-color: #03caf2; /* Svetlomodré pozadie pri hover */
+  color: #000; /* Čierny text na kontrast */
+}
+
+/* Aktívne pozadie pre vybrané možnosti */
+select option:checked {
+  background-color: #03caf2; /* Svetlomodré pozadie pri výbere */
+  color: #000; /* Čierny text na kontrast */
+}
+
+
+.task-container .task-section .task-item button {
+  padding: 0.4rem 0.8rem; /* Menšie vnútorné odsadenie */
+  font-size: 0.8rem; /* Menšie písmo */
+  font-weight: bold;
+  color: #fff;
+  background-color: #03caf2; /* Svetlomodrá farba */
+  border: none;
+  border-radius: 5px; /* Jemné zaoblené rohy */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Plynulý hover efekt */
+}
+
+/* Hover efekt */
+.task-container .task-section .task-item button:hover {
+  background-color: #027bb8; /* Tmavšia modrá pri hover */
+  transform: scale(1.05); /* Jemné zväčšenie tlačidla */
+}
+
+/* Disable efekt */
+.task-container .task-section .task-item button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
