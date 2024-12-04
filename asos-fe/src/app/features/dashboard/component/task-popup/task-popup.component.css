@@ -1,100 +1,141 @@
-/* Backdrop for the popup */
+/* Pozadie pre popup */
 .popup-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 10;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Polopriesvitné čierne pozadie */
+  z-index: 999;
+}
+
+/* Popup obsah */
+.popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  top: calc(50% + 25px); /* Posunutie okna o 50px nižšie */
+  margin: 0.2rem 0; /* Zníženie vertikálnej medzery */
+  font-size: 0.8rem; /* Veľkosť písma */
+  line-height: 1.2; /* Hustejšie riadky */
+  transform: translate(-50%, -50%);
+  background-color: #1f1f1f; /* Tmavé pozadie */
+  color: white;
+  padding: 0.5rem; /* Zmenšené vnútorné odsadenie */
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 90%; /* Prispôsobí sa menším obrazovkám */
+  max-width: 400px; /* Maximálna šírka */
+  max-height: 80vh; /* Maximálna výška, aby sa zmestilo na obrazovku */
+  overflow-y: auto; /* Povolenie posúvania obsahu, ak je obsah príliš dlhý */
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding-right: 25px;
+}
+
+.popup-content h5 {
   
-  /* Popup content styling */
+  font-size: 1rem;
+  color: #03caf2; /* Svetlomodrá farba */
+}
+
+/* Texty */
+.popup-content p,
+.popup-content li {
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+/* Zoznam komentárov */
+.popup-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-content ul li {
+  
+  border-bottom: 0.1px solid #444;
+  
+}
+
+/* Textarea */
+.popup-content textarea {
+  width: 100%;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 0.8rem;
+  outline: none;
+  resize: none; /* Zákaz meniť veľkosť textarea */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup-content textarea:focus {
+  border-color: #03caf2;
+  box-shadow: 0 0 5px rgba(3, 202, 242, 0.5);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between; /* Zarovnanie tlačidiel na opačné strany */
+  align-items: center; /* Vertikálne zarovnanie */
+  margin-top: 1rem; /* Priestor medzi textarea a tlačidlami */
+  width: 100%; /* Zabezpečenie, že kontajner tlačidiel zaberá plnú šírku */
+}
+
+/* Tlačidlá vo formulári */
+.popup-content button {
+  padding: 5px 15px; /* Pridanie vnútorného odsadenia pre lepší vzhľad */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #03caf2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+  background-color: #027bb8;
+}
+
+.popup-content button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* Špeciálny štýl pre tlačidlo Close */
+.form-buttons button[type="button"] {
+  background-color: #444;
+}
+
+.form-buttons button[type="button"]:hover {
+  background-color: #555;
+}
+
+/* Responzivita pre menšie obrazovky */
+@media (max-width: 768px) {
   .popup-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #1f1f1f;
-    padding: 2rem;
-    border-radius: 8px;
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    z-index: 11;
-    width: 300px;
-    max-width: 90%;
-    overflow-y: auto;
+    padding: 0.5rem;
+    max-width: 90%; /* Zmenšená šírka pre mobilné zariadenia */
   }
-  
-  /* Title styling */
-  .popup-content h2 {
-    margin-bottom: 1rem;
-    color: #3a86ff;
+
+  .popup-content h5 {
     font-size: 1.5rem;
-    text-align: center;
   }
-  
-  /* Section headers (e.g., Task Specifications, Comments) */
-  .popup-content h3 {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    color: #6ec1e4;
-    font-weight: bold;
-  }
-  
-  /* Paragraph styling for task details */
-  .popup-content p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-  
-  /* Strong tags within paragraphs */
-  .popup-content p strong {
-    color: #f4a261;
-  }
-  
-  /* Styling for the task details list */
-  .popup-content ul {
-    padding-left: 1.5rem;
-  }
-  
-  .popup-content li {
-    margin: 0.5rem 0;
+
+  .popup-content textarea {
     font-size: 0.9rem;
   }
-  
-  /* Close button styling */
+
   .popup-content button {
-    background: #3a86ff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-    display: block;
-    width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  
-  .popup-content button:hover {
-    background: #2c6fd4;
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 600px) {
-    .popup-content {
-      width: 90%;
-      padding: 1.5rem;
-    }
-    .popup-content h2 {
-      font-size: 1.3rem;
-    }
-    .popup-content p {
-      font-size: 0.9rem;
-    }
-    .popup-content button {
-      font-size: 0.9rem;
-    }
-  }
-  
+}
+
+

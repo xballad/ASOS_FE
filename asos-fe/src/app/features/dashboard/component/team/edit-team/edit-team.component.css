@@ -1,66 +1,170 @@
-/* General form styling */
-form {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-h2 {
-  text-align: center;
-  color: #333;
-}
-
-label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
-}
-
-input,
-button,
-select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-select {
-  background-color: #fff;
-  color: #333;
-}
-
-/* Button styles */
-button {
-  background-color: #4CAF50;
+/* Celý kontajner pre stránku */
+.edit-team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #121212; /* Tmavé pozadie */
   color: white;
+  min-height: calc(100vh - 70px); /* Výška stránky mínus výška navigácie */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Nadpis */
+.edit-team-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #03caf2; /* Svetlomodrá farba */
+}
+
+/* Select container (mimo formulára) */
+.select-container {
+  margin-bottom: 2rem; /* Priestor pod select */
+  text-align: left;
+  width: 300px; /* Nastavenie šírky */
+}
+
+.select-container label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.select-container select {
+  background-color: #1f1f1f;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  outline: none;
   cursor: pointer;
-  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Prispôsobí sa šírke kontajnera */
+}
+
+/* Hover a focus efekty pre select */
+.select-container select:hover {
+  border-color: #03caf2; /* Svetlomodrý rámik pri hover */
+}
+
+.select-container select:focus {
+  border-color: #03caf2;
+  box-shadow: 0 0 5px rgba(3, 202, 242, 0.5);
+}
+
+/* Možnosti v select */
+.select-container select option {
+  background-color: #1f1f1f; /* Rovnaké tmavé pozadie */
+  color: #fff; /* Biely text */
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Formulár */
+form {
+  background-color: #1f1f1f;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Formulár: Vstupné polia */
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form label {
+  font-weight: bold;
+  color: #fff;
+}
+
+form input {
+  padding: 0.8rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #03caf2;
+  box-shadow: 0 0 5px rgba(3, 202, 242, 0.5);
+}
+
+/* Tlačidlá */
+form button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+form button:hover {
+  background-color: #027bb8;
 }
 
-button:disabled {
-  background-color: #d3d3d3;
+form button:disabled {
+  background-color: #555;
   cursor: not-allowed;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
+/* "Add Member" a "Remove" tlačidlá */
+form button[type="button"] {
+  background-color: #444;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+form button[type="button"]:hover {
+  background-color: #555;
+}
+
+/* Členovia */
+form div[formArrayName="members"] > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+form div[formArrayName="members"] input {
+  flex: 1;
+}
+
+/* Responzivita pre mobilné zariadenia */
+@media (max-width: 768px) {
   form {
-    padding: 15px;
+    padding: 1rem;
   }
 
-  button {
-    font-size: 14px;
+  .edit-team-container h2 {
+    font-size: 1.5rem;
+  }
+
+  form button {
+    font-size: 0.9rem;
+  }
+
+  .select-container {
+    width: 100%; /* Na menších obrazovkách sa select roztiahne na celú šírku */
   }
 }
