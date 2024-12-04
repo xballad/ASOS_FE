@@ -172,3 +172,18 @@ select option:checked {
   background-color: #03caf2; /* Svetlomodré pozadie pri výbere */
   color: #000; /* Čierny text na kontrast */
 }
+
+button {
+  padding: 0.4rem 0.8rem; /* Menšie vnútorné odsadenie */
+  font-size: 0.8rem; /* Menšie písmo */
+  font-weight: bold;
+  color: #fff;
+  background-color: #03caf2; /* Svetlomodrá farba */
+  border: none;
+  border-radius: 5px; /* Jemné zaoblené rohy */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #027bb8; /* Tmavšia modrá pri hover */
+  transform: scale(1.05); /* Jemné zväčšenie tlačidla */
+  background-color: #555;
+}

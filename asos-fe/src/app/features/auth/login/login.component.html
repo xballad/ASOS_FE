@@ -11,7 +11,7 @@
           <input id="email" formControlName="email" type="text" />
           <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
             <small *ngIf="loginForm.get('email')?.errors?.['required']">email is required.</small>
-            <small *ngIf="loginForm.get('email')?.errors?.['minlength']">Username must be at least 4 characters.</small>
+            <small *ngIf="loginForm.get('email')?.errors?.['minlength']">Email must be at least 4 characters.</small>
           </div>
 
         </div>

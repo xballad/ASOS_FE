@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../service/task.service';
 import { AuthService } from '../../../auth/service/auth.service.service';
+import { TeamService } from '../../service/team.service';
 
 @Component({
   selector: 'app-create-task',
@@ -10,8 +11,13 @@ import { AuthService } from '../../../auth/service/auth.service.service';
 })
 export class CreateTaskComponent implements OnInit {
   taskForm: FormGroup;
+  teams: any[] = []; // To store user's teams
 
-  constructor(private fb: FormBuilder, private taskService: TaskService, private auSer: AuthService) {
+
+  constructor(private fb: FormBuilder, 
+    private taskService: TaskService, 
+    private teamService: TeamService,
+    private auSer: AuthService) {
     this.taskForm = this.fb.group({
       title: ['', [Validators.required]],
       status_task: ['To Do', [Validators.required]],
@@ -21,7 +27,23 @@ export class CreateTaskComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const userEmail = this.auSer.getUserEmail();
+    if (userEmail) {
+      this.loadUserTeams(userEmail);
+    }
+  }
+
+  loadUserTeams(email: string) {
+    this.teamService.getTeamsForUserByEmail(email).subscribe(
+      (teams) => {
+        this.teams = teams; // Populate the dropdown
+      },
+      (error) => {
+        console.error('Failed to load user teams:', error);
+      }
+    );
+  }
 
   onSubmit(): void {
     if (this.taskForm.valid) {

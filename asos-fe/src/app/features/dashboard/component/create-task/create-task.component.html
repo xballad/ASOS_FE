@@ -30,9 +30,14 @@
   </div>
 
   <div class="form-group">
-    <label for="team_assigned">Team</label>
-    <input id="team_assigned" formControlName="team_assigned" type="number" placeholder="Assigned Team ID" />
+    <label for="team_assigned">Assigned Team</label>
+    <select id="team_assigned" formControlName="team_assigned">
+      <option *ngFor="let team of teams" [value]="team.id">
+        {{ team.name }}
+      </option>
+    </select>
   </div>
+  
 
   <button type="submit" [disabled]="taskForm.invalid">Create Task</button>
 </form>
